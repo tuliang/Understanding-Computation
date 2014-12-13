@@ -1,10 +1,10 @@
+require "./simple/inspect"
+
 class LessThan < Struct.new(:left, :right)
+  include Inspect
+  
   def to_s
     "#{left} < #{right}"
-  end
-
-  def inspect
-    "< #{self} >"
   end
 
   def reducible?

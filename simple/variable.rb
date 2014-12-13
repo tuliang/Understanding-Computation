@@ -1,10 +1,10 @@
+require "./simple/inspect"
+
 class Variable < Struct.new(:name)
+  include Inspect
+  
   def to_s
     name.to_s
-  end
-
-  def inspect
-    "< #{self} >"
   end
 
   def reducible?

@@ -1,14 +1,16 @@
-require_relative "simple/number"
-require_relative "simple/add"
-require_relative "simple/multiply"
-require_relative "simple/boolean"
-require_relative "simple/less_than"
-require_relative "simple/variable"
-require_relative "simple/machine"
+require "./simple/number"
+require "./simple/add"
+require "./simple/multiply"
+require "./simple/boolean"
+require "./simple/less_than"
+require "./simple/variable"
+require "./simple/do_nothing"
+require "./simple/assign"
+require "./simple/machine"
 
 
 Machine.new(
-  Add.new(Variable.new(:x), Variable.new(:y)),
-  { x: Number.new(3), y: Number.new(4) }
+  Assign.new(:x, Add.new(Variable.new(:x), Number.new(1))),
+  { x: Number.new(2) }
 ).run
 
